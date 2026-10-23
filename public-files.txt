@@ -1,0 +1,13 @@
+.gitignore
+Cargo.lock
+Cargo.toml
+README.md
+crates/native-host/Cargo.toml
+crates/native-host/src/main.rs
+crates/recovery-core/Cargo.toml
+crates/recovery-core/src/lib.rs
+crates/recovery-core/tests/input_contract.rs
+docs/PUBLICATION_BOUNDARY.md
+docs/STATUS.md
+tools/audit_public_tree.py
+public-files.txt
