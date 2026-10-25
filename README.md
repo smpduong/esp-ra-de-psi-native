@@ -14,10 +14,10 @@ cargo run -p native-host
 cargo run -p native-host -- --smoke-frames 120
 ```
 
-The first command covers four public contract tests. The host crate contains one unit test for its bounded diagnostic frame counter. A successful build or bounded host run demonstrates host initialization and loop behavior only, not game boot or gameplay. The source workspace's 140 default tests and five separately invoked private composition tests are not part of this export and are not publicly reproducible from it. This repository is not a backup of that private semantic work.
+The first command covers four public contract tests. The host crate contains one unit test for its bounded diagnostic frame counter. A successful build or bounded host run demonstrates host initialization and loop behavior only, not game boot or gameplay. Private validation records a default suite of 144 passed with 49 ignored, plus a separate eight-test composition group that passed 8/8. Those private implementations, fixtures, receipts, and evidence are excluded here and are not publicly reproducible. This repository is not a backup of that private semantic work.
 
 ## Current recovery boundary
 
-Private research has a bounded ROM-startup Rust composition that reaches PC `0x59b6` after 161,612 selected handlers, 202,046 modeled reads, and 892,212 model cycles. In that fixture, neutral and controlled pressed input states differ as expected. This uses selected Rust models and a manual map; it is not an original-machine-code whole-chain comparison or a complete CPU emulator, and does not establish CPU boot, game boot, player control, or gameplay. The next bounded source task is the MOVL oracle, followed by RAM-clear work.
+Private bounded startup research now reaches PC `0x5a06` after composing a startup prefix, a 64 KiB RAM clear, and a zero-RAM scan. The composition records 309,074 selected handlers, 578,888 modeled reads, and 2,956,652 model cycles. The zero path completes; a nonzero control fails closed at PC `0x59f4` on an unrecovered instruction before its store. These are selected Rust models with bounded fixtures, not original-machine-code whole-chain execution or a complete CPU emulator. They do not establish CPU boot, game boot, player control, or gameplay.
 
 See [status](docs/STATUS.md) and the [publication boundary](docs/PUBLICATION_BOUNDARY.md).
